@@ -1,7 +1,10 @@
 body{
-    height: 100vh;
     background-color:  antiquewhite;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 200px;
 }
 
 
@@ -32,4 +35,19 @@ p{
     font-size: 30px;
     color: rgb(10, 124, 109);
     font-weight: bold;
+}
+
+.input1, .input2, .poids, .taille{
+    border: 1px solid rgb(10, 124, 109);
+    border-radius: 5px;
+
+}
+
+.compare, .calculerImc{
+    border-radius: 10px;
+}
+
+h2{
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
