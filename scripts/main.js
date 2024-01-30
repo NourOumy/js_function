@@ -113,3 +113,33 @@ calculerImc.addEventListener("click", function(){
     imc(parseInt(kg.value), parseInt(metre.value))
     
 })
+
+let findnbr = document.querySelector('.findnbr')
+let submitnbr = document.querySelector('.submitnbr')
+let resultatnbr = document.querySelector('.resultatnbr')
+let compteur = document.querySelector('.compteur')
+let decompte = 5
+
+function tirage (min,max){
+    return Math.floor(Math.random() * (max - min + 1)) + min; 
+}
+let justnbr = tirage (0,100)
+
+
+function comparaisonnbr (finded,tiragenbr){
+    if(finded!=tiragenbr){
+        resultatnbr.innerHTML="oups, Essayez encore !"
+    }else{
+        resultatnbr.innerHTML="Yes ! you are the winner !"
+    }
+    if(decompte==0){
+        resultatnbr.innerHTML="Vous avez épuisez toutes vos chances :-("
+    }
+}
+
+submitnbr.addEventListener("click", function(){
+    comparaisonnbr(findnbr.value,justnbr)
+    compteur.innerHTML = decompte - 1
+    decompte = compteur
+})
+
