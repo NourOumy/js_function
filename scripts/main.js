@@ -5,9 +5,9 @@
 
 // exemple :
 
-function addition() {
-    console.log(4+5);
-}
+// function addition() {
+//     console.log(4+5);
+// }
 
 // pour la voir dans la console :
 
@@ -114,6 +114,8 @@ calculerImc.addEventListener("click", function(){
     
 })
 
+// exercice 4
+
 let findnbr = document.querySelector('.findnbr')
 let submitnbr = document.querySelector('.submitnbr')
 let resultatnbr = document.querySelector('.resultatnbr')
@@ -139,7 +141,30 @@ function comparaisonnbr (finded,tiragenbr){
 
 submitnbr.addEventListener("click", function(){
     comparaisonnbr(findnbr.value,justnbr)
-    compteur.innerHTML = decompte - 1
-    decompte = compteur
+    compteur.innerHTML = decompte -1
+    compteur = decompte
 })
 
+// exercice 5
+
+let fetards = document.querySelector('.fetards'),
+    quantity = document.querySelector('.quantity'),
+    ingredients = document.querySelector('.ingredients'),
+    miamersbtn = document.querySelector('.miamersbtn'),
+    miamerstab =[],
+    recap = document.querySelector('.recap')
+
+    function addmiamerstab (name,nbritems,items){
+        miamerstab[0]= name;
+        miamerstab[1]= nbritems;
+        miamerstab[2]= items
+    }
+
+    miamersbtn.addEventListener("click", function(){
+        addmiamerstab(fetards.value,quantity.value,ingredients.value)
+        recap.innerHTML += `
+        <p>[${miamerstab[0]}] ${miamerstab[1]}x ${miamerstab[2]}</p>
+        `
+    })
+   
+   

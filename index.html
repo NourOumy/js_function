@@ -48,7 +48,27 @@
         <input class="findnbr" type="text" placeholder="Entrez le nombre !">
         <button class="submitnbr" type="submit">Tentez votre chance !</button>
         <p class="resultatnbr"></p>
-
+</div>
+<div class="fifthexercice">
+    <h2>Créez 3 champs de formulaire (1 select avec les prénoms de tous les fêtards, 1 select avec des numéro de 1 à 10 pour la quantité, un input text pour indiquer de quoi il s'agit) et un bouton de validation
+        Quand vous "Ajoutez" un élément, ça vient se loger dans une boite qui affiche le résultat (présentation libre) en indiquant de cette façon : [Olivier] 2 x Bellini
+        Il doit y avoir la possibilité de supprimer un élément de la liste
+        Quand vous "Ajoutez" un élément, je vous demande de l'inscrire dans un tableau d'objets qui contiendra au minimum le nom de la personne, la quantité et ce qu'elle amène
+        C'est dans ce tableau d'objets que vous allez puiser pour afficher la liste des choses</h2>
+        <input list="fetards" placeholder="Nom" class="fetards">
+            <datalist id="fetards">
+                <option value="Ilayda">
+                <option value="Valérie">
+                <option value="Oliver">
+                <option value="Laura">
+                <option value="Diego">
+            </datalist>
+        <input class="quantity" type="number" min="1" max="10" placeholder="quantité">
+        <input class="ingredients" type="text" placeholder="Par ex : chips">
+        <button class="miamersbtn" type="submit">Ajouter</button>
+        <div class="recap">
+            <h3>Qui ramène quoi ?</h3>
+        </div>
 </div>
     <!-- liaison js -->
 <script src="scripts/main.js"></script>
