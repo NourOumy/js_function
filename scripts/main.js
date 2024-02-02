@@ -87,7 +87,7 @@ let resultImc = document.querySelector(".resultImc")
 let resultatImc = 0
 
 function imc(poids,taille){
-    resultatImc= poids/taille**2
+    resultatImc= poids/(taille**2)
     if(resultatImc<18,5){
         resultImc.innerHTML = `Votre IMC est de ${resultatImc} ce qui signifie que vous êtes en insuffisance pondérale (maigreur)`
     }
@@ -110,10 +110,11 @@ function imc(poids,taille){
 }
 
 calculerImc.addEventListener("click", function(){
-    imc(parseInt(kg.value), parseInt(metre.value))
+    imc(parseInt(kg.value), parseFloat(metre.value))
     
 })
 
+// arrondir le résultat
 // exercice 4
 
 let findnbr = document.querySelector('.findnbr')
@@ -135,14 +136,18 @@ function comparaisonnbr (finded,tiragenbr){
         resultatnbr.innerHTML="Yes ! you are the winner !"
     }
     if(decompte==0){
-        resultatnbr.innerHTML="Vous avez épuisez toutes vos chances :-("
+        resultatnbr.innerHTML="Vous avez épuisé toutes vos chances :-("
+        findnbr.parentElement.remove()
     }
 }
 
 submitnbr.addEventListener("click", function(){
+    decompte --
     comparaisonnbr(findnbr.value,justnbr)
-    compteur.innerHTML = decompte -1
-    compteur = decompte
+    
+    compteur.innerHTML = decompte
+    // compteur.innerHTML = decompte -1
+    // compteur = decompte
 })
 
 // exercice 5
@@ -158,13 +163,21 @@ let fetards = document.querySelector('.fetards'),
         miamerstab[0]= name;
         miamerstab[1]= nbritems;
         miamerstab[2]= items
+        recap.innerHTML += `
+        <div><p>[${miamerstab[0]}] ${miamerstab[1]}x ${miamerstab[2]}<span class="delete" href="#">❌</span></p></div>
+        `
     }
 
     miamersbtn.addEventListener("click", function(){
         addmiamerstab(fetards.value,quantity.value,ingredients.value)
-        recap.innerHTML += `
-        <p>[${miamerstab[0]}] ${miamerstab[1]}x ${miamerstab[2]}</p>
-        `
+        let allspans = document.querySelectorAll('span')
+        allspans.forEach(function(allspan){
+            allspan.addEventListener("click", function(){
+                allspan.parentElement.remove()
+
+            })
+        })
     })
    
-   
+
+    

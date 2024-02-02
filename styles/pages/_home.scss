@@ -37,17 +37,34 @@ p{
     font-weight: bold;
 }
 
-.input1, .input2, .poids, .taille, .findnbr{
+.input1, .input2, .poids, .taille, .findnbr, .quantity, .ingredients, .fetards,{
     border: 1px solid rgb(10, 124, 109);
     border-radius: 5px;
 
 }
 
-.compare, .calculerImc, .submitnbr{
+.compare, .calculerImc, .submitnbr, .miamersbtn{
     border-radius: 10px;
 }
 
 h2{
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.recap {
+    border: 1px solid rgb(10, 124, 109);
+    border-radius: 5px;
+    width: 500px;
+    background-color: white;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   justify-content: center;
+   div{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+   }
 }
