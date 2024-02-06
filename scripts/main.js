@@ -79,15 +79,16 @@ compare.addEventListener("click", function(){
 })
 
 // 3. Demandez à l'utilisateur son poids (en kg) et sa taille (en m) et calculez son IMC
-
+// POUR FAIRE UN IF AVEC DEUX CONDITION => si if(prenom = nour && nom = ryahi)
 let calculerImc = document.querySelector(".calculerImc")
 let kg = document.querySelector(".poids")
 let metre = document.querySelector(".taille")
 let resultImc = document.querySelector(".resultImc")
 let resultatImc = 0
 
+// pour arrondir : tofixed(combien de chiffre après la virgule)
 function imc(poids,taille){
-    resultatImc= poids/(taille**2)
+    resultatImc= poids/(taille**2).toFixed(1)
     if(resultatImc<18,5){
         resultImc.innerHTML = `Votre IMC est de ${resultatImc} ce qui signifie que vous êtes en insuffisance pondérale (maigreur)`
     }
@@ -109,12 +110,14 @@ function imc(poids,taille){
 
 }
 
+// parseFloat = pour prendre en comptte ce qu'il y a après la virgule
+
 calculerImc.addEventListener("click", function(){
-    imc(parseInt(kg.value), parseFloat(metre.value))
+    imc(parseFloat(kg.value), parseFloat(metre.value))
     
 })
 
-// arrondir le résultat
+
 // exercice 4
 
 let findnbr = document.querySelector('.findnbr')
@@ -123,6 +126,14 @@ let resultatnbr = document.querySelector('.resultatnbr')
 let compteur = document.querySelector('.compteur')
 let decompte = 5
 
+
+// pour utiliser le setTimeout :
+function effacer(){
+    resultatnbr.innerHTML=""
+}
+
+// Math.floor arrondit 5.95 => 5
+// Math.round arrondit 5.95 => 6
 function tirage (min,max){
     return Math.floor(Math.random() * (max - min + 1)) + min; 
 }
@@ -132,8 +143,13 @@ let justnbr = tirage (0,100)
 function comparaisonnbr (finded,tiragenbr){
     if(finded!=tiragenbr){
         resultatnbr.innerHTML="oups, Essayez encore !"
+
+        setTimeout(effacer, 2000)
+        // = pour effacer près 2s
     }else{
         resultatnbr.innerHTML="Yes ! you are the winner !"
+        setTimeout(effacer, 2000)
+
     }
     if(decompte==0){
         resultatnbr.innerHTML="Vous avez épuisé toutes vos chances :-("
